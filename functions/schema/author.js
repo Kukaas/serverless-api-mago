@@ -14,10 +14,6 @@ const authorSchema = new Schema({
     type: String,
     required: true, 
   },
-  datePublished: {
-    type: Date,
-    required: true,
-  }
 });
 
 module.exports = authorSchema;
