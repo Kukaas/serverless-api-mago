@@ -2,15 +2,15 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const authorSchema = new Schema({
-  name: {
+  productType: {
     type: String,
     required: true,
   },
-  age: {
+  quantity: {
     type: Number,
     required: true,
   },
-  books: {
+  unit: {
     type: String,
     required: true, 
   },
