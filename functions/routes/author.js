@@ -22,12 +22,12 @@ router.get("/:id", getAuthor, (req, res) => {
 router.post("/", async (req, res) => {
   try {
     //validate the request
-    if (!req.body.name || !req.body.age) {
+    if (!req.body.productType || !req.body.quantity) {
       return res.status(400).json({ message: "Name and Age are required" });
     }
     //check if author already exists
     const existingAuthor = await AuthorModel.findOne({
-      name: req.body.name,
+      name: req.body.productType,
     });
     if (existingAuthor) {
       return res.status(400).json({ message: "Author already exists" });
@@ -44,8 +44,8 @@ router.post("/", async (req, res) => {
 //updateAuthor
 router.patch("/:id", getAuthor, async (req, res) => {
   try {
-    if (req.body.name != null) {
-      res.author.name = req.body.name;
+    if (req.body.productType != null) {
+      res.author.productType = req.body.productType;
     }
     const updatedAuthor = await res.author.save();
     res.json({ message: "Author updated", author: updatedAuthor });
