@@ -10,15 +10,14 @@ const authorSchema = new Schema({
     type: Number,
     required: true,
   },
-  username: String,
-  password: String,
-});
-authorSchema.pre("save", function (next) {
-  const username = this.name.toLowerCase().replace(/\s/g, "");
-  const password = `${this.name}${this.age}`;
-  this.username = username;
-  this.password = password;
-  next();
+  books: {
+    type: String,
+    required: true, 
+  },
+  datePublished: {
+    type: Date,
+    required: true,
+  }
 });
 
 module.exports = authorSchema;
